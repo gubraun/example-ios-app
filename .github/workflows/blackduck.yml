@@ -13,4 +13,4 @@ jobs:
     steps:  
       - uses: actions/checkout@v2
       - name: Run Detect7
-        run: bash <(curl -s -L https://detect.synopsys.com/detect7.sh) 
+        run: bash <(curl -s -L https://detect.synopsys.com/detect7.sh) --blackduck.url=${{ secrets.BLACKDUCK_URL }} --blackduck.api.token=${{ secrets.BLACKDUCK_API_TOKEN }} --detect.detector.search.depth=4 --detect.tools=DETECTOR -d --detect.cleanup=false
