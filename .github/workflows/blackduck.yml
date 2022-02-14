@@ -13,4 +13,9 @@ jobs:
     steps:  
       - uses: actions/checkout@v2
       - name: Run Detect7
-        run: bash <(curl -s -L https://detect.synopsys.com/detect7.sh) --blackduck.url=${{ secrets.BLACKDUCK_URL }} --blackduck.api.token=${{ secrets.BLACKDUCK_API_TOKEN }} --detect.detector.search.depth=5 --detect.tools=DETECTOR -d --detect.cleanup=false
+        run: bash <(curl -s -L https://detect.synopsys.com/detect7.sh) --blackduck.url=${{ secrets.BLACKDUCK_URL }} --blackduck.api.token=${{ secrets.BLACKDUCK_API_TOKEN }} --detect.detector.search.depth=5 --detect.tools=DETECTOR -de --detect.cleanup=false
+      - name: Archive Detect diagnostics
+        uses: actions/upload-artifact@v2
+        with:
+          name: code-coverage-report
+          path: output/test/code-coverage.html
