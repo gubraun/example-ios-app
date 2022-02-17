@@ -15,7 +15,7 @@ jobs:
           distribution: 'adopt'
       # Run Synopsys Detect
       - name: Run Synopsys Detect
-        uses: synopsys-sig/detect-action@main
+        uses: synopsys-sig/detect-action@v0.3.1
         env:
           DETECT_DIAGNOSTIC: true
           DETECT_TOOLS: DETECTOR
@@ -24,6 +24,6 @@ jobs:
         with:
           scan-mode: INTELLIGENT
           github-token: ${{ secrets.GH_TOKEN }}
-          detect-version: 7.9.0
+          detect-version: latest
           blackduck-url: ${{ secrets.BLACKDUCK_URL }}
           blackduck-api-token: ${{ secrets.BLACKDUCK_API_TOKEN }}
